@@ -76,6 +76,36 @@
     background:var(--line);
   }
 
+  .status{
+    display:flex; align-items:center; justify-content:center; gap:9px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    color:var(--ink-soft);
+    margin:0 0 26px;
+  }
+  .status .eq{
+    display:flex; align-items:flex-end; gap:2px;
+    height:11px;
+  }
+  .status .eq span{
+    width:2.5px;
+    background:var(--teal);
+    display:inline-block;
+    animation:eq 1s ease-in-out infinite;
+  }
+  .status .eq span:nth-child(1){ animation-delay:-0.9s; }
+  .status .eq span:nth-child(2){ animation-delay:-0.5s; }
+  .status .eq span:nth-child(3){ animation-delay:-0.2s; }
+  @keyframes eq{
+    0%, 100%{ height:3px; }
+    50%{ height:11px; }
+  }
+  .status .track{ color:var(--ink); }
+  .status .artist{ color:var(--ink-soft); }
+  @media (prefers-reduced-motion: reduce){
+    .status .eq span{ animation:none; height:6px; }
+  }
+
   .name{
     font-family:'Bitter', serif;
     font-weight:700;
@@ -92,8 +122,64 @@
     letter-spacing:0.04em;
     text-align:center;
     color:var(--teal);
-    margin:0 0 40px;
+    margin:0 0 18px;
   }
+
+  .bio{
+    font-size:13.5px;
+    line-height:1.55;
+    color:var(--ink-soft);
+    text-align:center;
+    max-width:340px;
+    margin:0 auto 20px;
+  }
+
+  .tags{
+    display:flex; flex-wrap:wrap; justify-content:center;
+    gap:7px;
+    margin:0 0 36px;
+  }
+  .tag{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10px;
+    letter-spacing:0.03em;
+    color:var(--teal);
+    border:1px solid var(--teal);
+    border-radius:20px;
+    padding:4px 11px;
+  }
+
+  .info-title{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10.5px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin:0 0 12px 4px;
+  }
+
+  .info{
+    list-style:none; margin:0 0 32px; padding:14px 16px;
+    background:var(--paper-2);
+    border:1px solid var(--line);
+    border-radius:3px;
+    display:flex; flex-direction:column; gap:9px;
+  }
+  .info li{
+    display:flex; gap:10px;
+    font-size:12.5px;
+    line-height:1.4;
+  }
+  .info .k{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10px;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    flex:0 0 78px;
+    padding-top:1px;
+  }
+  .info .v{ color:var(--ink); }
 
   .legend-title{
     font-family:'IBM Plex Mono', monospace;
@@ -190,8 +276,22 @@
 
     <div class="coords">11°51'S · 55°30'W — MT/PA, Brasil</div>
 
+    <div class="status">
+      <span class="eq" aria-hidden="true"><span></span><span></span><span></span></span>
+      <span>status do dia — <span class="track">How You Remind Me</span> · <span class="artist">Nickelback</span></span>
+    </div>
+
     <h1 class="name">Bruna Gabriele Wüst</h1>
-    <p class="role">Geoprocessamento &amp; Sensoriamento Remoto</p>
+    <p class="role">Data Science &amp; Analytics · Ciências Agrárias</p>
+
+    <p class="bio">Especialista em Data Science &amp; Analytics e em Ciências Agrárias. Pesquisa recente com foco em fragmentação florestal, unindo geoprocessamento e sensoriamento remoto para análise de paisagens na Amazônia.</p>
+
+    <div class="tags">
+      <span class="tag">Fragmentação florestal</span>
+      <span class="tag">Data Science &amp; Analytics</span>
+      <span class="tag">Ciências Agrárias</span>
+      <span class="tag">Sensoriamento remoto</span>
+    </div>
 
     <p class="legend-title">Legenda — canais de contato</p>
     <ul class="links">
@@ -231,6 +331,13 @@
           <span class="arrow">→</span>
         </a>
       </li>
+    </ul>
+
+    <p class="info-title">Formação</p>
+    <ul class="info">
+      <li><span class="k">Instituição</span><span class="v">IFMT — Campus Sorriso</span></li>
+      <li><span class="k">Curso</span><span class="v">Pós-Graduação em Educação Ambiental</span></li>
+      <li><span class="k">Orientação</span><span class="v">Ritielly L. C. Senigalia</span></li>
     </ul>
 
     <footer>
